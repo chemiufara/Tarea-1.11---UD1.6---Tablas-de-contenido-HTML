@@ -5,90 +5,140 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tarea 1.11 - Tablas HTML</title>
+
+    <!-- Usamos CSS para poner los bordes de la tabla.
+    Es mejor hacerlo así porque separamos el diseño
+    del contenido y evitamos usar atributos antiguos
+    de HTML como border, align o bgcolor. -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<table> 
-    <caption>Horario de 1º DAW</caption>
-    <tr>
-        <th>Hora</th>
-        <th>Lunes</th>
-        <th>Martes</th>
-        <th>Miércoles</th>
-        <th>Jueves</th>
-        <th>Viernes</th>
-    </tr>
 
-<!-- Primera hora -->
-<tr>
-    <th>15:30 - 16:25</th>
+    <!-- La etiqueta table sirve para crear una tabla
+    y organizar la información en filas y columnas. -->
+    <table>
 
-    <td rowspan="2">Lenguajes de marcas</td>
-    <td rowspan="2">Programación</td>
-    <td>Inglés</td>
-    <td rowspan="2">Sistemas informáticos</td>
-    <td>Tutoría</td>
+        <!-- caption sirve para poner un título a la tabla
+        y explicar de qué trata su contenido. -->
+        <caption>Horario de 1º DAW</caption>
 
-</tr>
+        <!-- tr sirve para crear una fila dentro de la tabla. -->
+        <tr>
 
-<!-- Segunda hora -->
-<tr>
-    <th>16:25 - 17:20</th>
-    <td rowspan="2">Programación</td>
-    <td>Inglés</td>
-</tr>
+            <!-- th sirve para crear una celda de encabezado.
+            Normalmente aparece en negrita y centrada. -->
+            <th>Hora</th>
+            <th>Lunes</th>
+            <th>Martes</th>
+            <th>Miércoles</th>
+            <th>Jueves</th>
+            <th>Viernes</th>
+        </tr>
 
-<!-- Tercera hora -->
-<tr>
-    <th>17:20 - 18:15</th>
-    <td>Programación</td>
-    <td>Bases de datos</td>
-    <td>Bases de datos</td>
-    <td>IPE</td>
-</tr>
+        <!-- Primera hora -->
+        <tr>
+            <th>15:30 - 16:25</th>
 
-<!-- Recreo -->
-<tr>
-    <th>18:15 - 18:35</th>
-    <td colspan="5">Recreo</td>
-</tr>
+            <!-- td sirve para crear una celda con información
+            dentro de la tabla, como una asignatura. -->
 
-<!-- Cuarta hora -->
-<tr>
-    <th>18:35 - 19:30</th>
-    <td rowspan="3">Sistemas informáticos</td>
-    <td>Bases de datos</td>
-    <td>Programación</td>
-    <td>Bases de datos</td>
-    <td>Bases de datos</td>
-</tr>
+            <!-- rowspan permite unir varias filas en una
+            misma celda. En este caso, el valor 2 indica
+            que la asignatura ocupa dos horas seguidas. -->
+            <td rowspan="2">Lenguajes de marcas</td>
+            <td rowspan="2">Programación</td>
+            <td>Inglés</td>
+            <td rowspan="2">Sistemas informáticos</td>
+            <td>Tutoría</td>
+        </tr>
 
-<!-- Quinta hora -->
-<tr>
-    <th>19:30 - 20:25</th>
-    <td rowspan="2">Entornos de desarrollo</td>
-    <td>Lenguajes de marcas</td>
-    <td rowspan="2">Programación</td>
-    <td>Entornos de desarrollo</td>
-</tr>
+        <!-- Segunda hora -->
+        <tr>
+            <th>16:25 - 17:20</th>
 
-<!-- Sexta hora -->
-<tr>
-    <th>20:25 - 21:15</th>
-    <td rowspan="2">IPE</td>
-</tr>
+            <!-- No repetimos las asignaturas que ya ocupan
+            dos filas gracias al atributo rowspan. -->
+            <td rowspan="2">Programación</td>
+            <td>Inglés</td>
+        </tr>
 
+        <!-- Tercera hora -->
+        <tr>
+            <th>17:20 - 18:15</th>
+            <td>Programación</td>
+            <td>Bases de datos</td>
 
-<!-- Séptima hora -->
-<tr>
-    <th>21:15 - 22:05</th>
-    <td>Tutoría</td>
-    <td></td>
-    <td>Proyecto intermodular</td>
-    <td></td>
-</tr>
+            <!-- Programación del miércoles ya ocupa esta
+            hora gracias al rowspan de la fila anterior. -->
+            <td>Bases de datos</td>
+            <td>IPE</td>
+        </tr>
 
+        <!-- Recreo -->
+        <tr>
+            <th>18:15 - 18:35</th>
 
-</table>
+            <!-- colspan permite unir varias columnas en
+            una sola celda. El valor 5 hace que el recreo
+            ocupe todos los días de lunes a viernes. -->
+            <td colspan="5">Recreo</td>
+        </tr>
+
+        <!-- Cuarta hora -->
+        <tr>
+            <th>18:35 - 19:30</th>
+
+            <!-- Sistemas informáticos ocupa tres horas
+            seguidas el lunes, por eso usamos rowspan 3. -->
+            <td rowspan="3">Sistemas informáticos</td>
+            <td>Bases de datos</td>
+            <td>Programación</td>
+            <td>Bases de datos</td>
+            <td>Bases de datos</td>
+        </tr>
+
+        <!-- Quinta hora -->
+        <tr>
+            <th>19:30 - 20:25</th>
+
+            <!-- El lunes ya está ocupado por la asignatura
+            Sistemas informáticos de la fila anterior. -->
+            <td rowspan="2">Entornos de desarrollo</td>
+            <td>Lenguajes de marcas</td>
+            <td rowspan="2">Programación</td>
+            <td>Entornos de desarrollo</td>
+        </tr>
+
+        <!-- Sexta hora -->
+        <tr>
+            <th>20:25 - 21:15</th>
+
+            <!-- Lunes, martes y jueves ya están ocupados
+            por asignaturas que duran varias horas. -->
+            <td rowspan="2">IPE</td>
+
+            <!-- Dejamos la celda vacía porque el viernes
+            no tenemos clase durante esta franja. -->
+            <td></td>
+        </tr>
+
+        <!-- Séptima hora -->
+        <tr>
+            <th>21:15 - 22:05</th>
+            <td>Tutoría</td>
+
+            <!-- El martes no tenemos clase. -->
+            <td></td>
+
+            <!-- El miércoles ya está ocupado por IPE,
+            que tiene rowspan 2 desde la sexta hora. -->
+            <td>Proyecto intermodular</td>
+
+            <!-- El viernes tampoco tenemos clase. -->
+            <td></td>
+        </tr>
+
+    </table>
+
 </body>
 </html>

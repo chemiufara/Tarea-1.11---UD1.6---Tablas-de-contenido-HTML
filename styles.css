@@ -1,4 +1,6 @@
 
+/* Añadimos bordes a la tabla y a todas sus celdas.
+El borde será continuo y tendrá 1 píxel de grosor. */
 table, th, td {
     border: 1px solid;
 }
